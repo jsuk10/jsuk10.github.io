@@ -1,7 +1,11 @@
 ---
-title: 템플릿
-key: 템플릿
-tags: UE4.27 Slate
+title: 템플릿           # 제목
+key: 템플릿             # 댓글 위해 필요
+tags: UE4.27 Slate      # 태그
+article_header:
+  type: cover
+  image:
+    src: /assets/images/UE4.27/Nevercook0.png #이미지 커버
 ---
 
 이미지 템플릿

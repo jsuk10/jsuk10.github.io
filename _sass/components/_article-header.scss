@@ -1,6 +1,9 @@
 .article__header {
   margin-top: map-get($spacers, 5);
   margin-bottom: map-get($spacers, 4);
+
+  text-align: center;
+  
   @include media-breakpoint-down(md) {
     margin-top: map-get($spacers, 4);
   }
@@ -12,9 +15,6 @@
   }
   .split-space {
     @include user-select(none);
-  }
-  .edit-on-github {
-    text-decoration: none !important;
   }
 }
 
@@ -45,6 +45,29 @@
   }
 }
 
+/* ❶ 래퍼: 가운데 정렬 + 상하 여백 */
+.article__header-cover {
+  display: flex;
+  justify-content: center;  /* 가로 중앙 */
+  margin-top: map-get($spacers, 5);
+  margin-bottom: map-get($spacers, 4);
+
+  @include media-breakpoint-down(md) {
+    margin-top: map-get($spacers, 4);
+  }
+}
+
+/* ❷ 이미지: 최대폭 제한 + 반응형 크롭 */
 .article__header--cover {
-  width: 100%;
+  display: block;
+  width: 50%;
+  max-width: 400px;     /* 원하는 최대 폭 (예: 640~880px로 조절 가능) */
+  height: auto;         /* 원본 비율 유지 */
+
+  /* 만약 세로를 줄이고 싶다면(헤더가 ‘너무 큼’ 방지) */
+  /* 아래 두 줄을 켜면 세로 크롭 */
+  /* max-height: 280px; */
+  /* object-fit: cover; */
+
+  border-radius: 8px;   /* 선택: 모서리 처리 */
 }
