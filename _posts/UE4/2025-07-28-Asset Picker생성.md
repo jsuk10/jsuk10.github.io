@@ -9,7 +9,7 @@ tags: UE4.27 Slate
 
 특정 에셋만 빠르게 볼 수 있는 기능인 Asset Picker창 제작 
 
-![image.png](/assets/images/UE4.27AssetPicker0.png)
+![image.png](/assets/images/UE4.27/AssetPicker0.png)
 
 # Asset Picker
 
@@ -37,7 +37,7 @@ IContentBrowserSingleton.h헤더에 정의되어 있음
 
 디테일 패널 내에서 매쉬 선택시 동일하게 Asset Picker가 사용됨을 알 수 있다.
 
-![image.png](/assets/images/UE4.27AssetPicker1.png)
+![image.png](/assets/images/UE4.27/AssetPicker1.png)
 
 - ContentBrowserModule.Get().CreateAssetPicke로 만들 수 있다.
 
@@ -62,7 +62,7 @@ void FTestEditor::AddToolbarButton(FToolBarBuilder& ToolbarBuilder)
 }
 ```
 
-![image.png](/assets/images/UE4.27AssetPicker2.png)
+![image.png](/assets/images/UE4.27/AssetPicker2.png)
 
 ## 2. FAssetPickerConfig구성
 
@@ -88,7 +88,7 @@ void FTestEditor::AddToolbarButton(FToolBarBuilder& ToolbarBuilder)
 
 - OnAssetSelected에 원하는 동작 바인딩
 
-[GitHub 바로가기](https://github.com/jsuk10/PracticetUnrealEngine/commit/2d5b48046f11d899e4149e1a5125969030ae15dd){:.button.button--outline-success.button--pill}
+[GitHub Code](https://github.com/jsuk10/PracticetUnrealEngine/commit/2d5b48046f11d899e4149e1a5125969030ae15dd){:.button.button--outline-success.button--pill}
 
 ## 3. Asset Picker창 구현
 
@@ -134,4 +134,4 @@ Asset Picker을 보여줄 Window생성
         // 창 추가
         FSlateApplication::Get().AddWindow(PickerWindow.ToSharedRef());
 ```
-[GitHub 바로가기](https://github.com/jsuk10/PracticetUnrealEngine/commit/3323433392dcf64a5634ef39f8d2e88e82ec09d7){:.button.button--outline-success.button--pill}
+[GitHub Code](https://github.com/jsuk10/PracticetUnrealEngine/commit/3323433392dcf64a5634ef39f8d2e88e82ec09d7){:.button.button--outline-success.button--pill}
