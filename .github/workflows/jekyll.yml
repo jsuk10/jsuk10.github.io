@@ -2,37 +2,30 @@ name: Build and Deploy Jekyll Site
 
 on:
   push:
-    branches: [ master ]
-  workflow_dispatch:
+    branches: [ master ]    # master에 푸시하면 자동 배포
+  workflow_dispatch:        # 수동 실행도 허용
+
+permissions:
+  contents: write           # gh-pages 브랜치 푸시 권한
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
+      - name: Setup Ruby (with Bundler cache)
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
+          bundler-cache: true     # Gemfile.lock 기반으로 자동 install & 캐시
 
-      - name: Cache Ruby gems
-        uses: actions/cache@v4
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-
-      - name: Install dependencies
-        run: |
-          gem install bundler || true
-          bundle install --path vendor/bundle
-
-      - name: Build site with Jekyll
-        run: bundle exec jekyll build
+      - name: Build with Jekyll
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --trace
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
