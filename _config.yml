@@ -126,12 +126,13 @@ comments:
 
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
+  # 정적 페이지라 어차피 키 탈취가능성이 높아서 그냥 단다. 차후 문제 생기면 삭제하는것으로..
   gitalk:
-    clientID    : # GitHub Application Client ID
-    clientSecret: # GitHub Application Client Secret
-    repository  : # GitHub repo
-    owner       : # GitHub repo owner
-    admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
+    clientID    : Ov23liOEtgEn66A2Cp9Y # GitHub Application Client ID
+    clientSecret: c08c93d31ed7175f0273dde33467cec940efbd2d # GitHub Application Client Secret
+    repository  : jsuk10.github.io # GitHub repo
+    owner       : jsuk10 # GitHub repo owner
+    admin: jsuk10 # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
       # - your GitHub Id
 
   ## Valine
@@ -159,7 +160,7 @@ pageview:
 ## => Search
 ##############################
 search:
-  provider: default # "default" (default), false, "google", "custom"
+  provider: false # "default" (default), false, "google", "custom"
 
   ## Google Custom Search Engine
   google:
