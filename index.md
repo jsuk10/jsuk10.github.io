@@ -1,3 +1,4 @@
+
 ---
 layout: home
 title: Home
@@ -8,6 +9,6 @@ articles:
   show_excerpt: true
   excerpt_type: html
   show_readmore: true
-  show_tags: true
-  show_date: true
+  show_tags: false
+  show_date: false
 ---
