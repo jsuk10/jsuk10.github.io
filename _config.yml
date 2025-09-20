@@ -118,22 +118,24 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: disqus # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: "gitalk" # false (default), "disqus", "gitalk", "valine", "custom"
 
   ## Disqus
   disqus:
-    shortname: "jsuk10" # the Disqus shortname for the site
+    shortname: # the Disqus shortname for the site
 
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   # 정적 페이지라 어차피 키 탈취가능성이 높아서 그냥 단다. 차후 문제 생기면 삭제하는것으로..
+
   gitalk:
-    clientID    : Ov23liOEtgEn66A2Cp9Y # GitHub Application Client ID
-    clientSecret: c08c93d31ed7175f0273dde33467cec940efbd2d # GitHub Application Client Secret
-    repository  : jsuk10.github.io # GitHub repo
-    owner       : jsuk10 # GitHub repo owner
-    admin: jsuk10 # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
-      # - your GitHub Id
+    clientID    : "Ov23liOEtgEn66A2Cp9Y"
+    clientSecret: "c08c93d31ed7175f0273dde33467cec940efbd2d"  # 운영 비권장
+    repository  : "jsuk10.github.io"          # ← 현재 쓰신 형태 유지
+    owner       : "jsuk10"
+    admin:
+      - "jsuk10"
+
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
