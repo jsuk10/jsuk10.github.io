@@ -1,6 +1,17 @@
 header:
   - titles:
-      en      : &EN       All
+      en      : &EN       Home
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      ko      : &KO       메인
+      ko-KR   : *KO
+      # @end locale config
+    url: /
+
+  - titles:
+      en      : &EN       Archive
       en-GB   : *EN
       en-US   : *EN
       en-CA   : *EN
@@ -10,19 +21,19 @@ header:
       # @end locale config
     url: /archive.html
 
+  # 필터 페이지 차후에 CPP나 OS추가 예정. 
   - titles:
-      en      : &EN       UE4
-      en-GB   : *EN
-      en-US   : *EN
-      en-CA   : *EN
-      en-AU   : *EN
-      ko      : &KO       UE4
-      ko-KR   : *KO
-      # @end locale config
-    url: /archive.html?tag=UE4.27
+      ko: UE4.27
+      en: UE4.27
+    url: /tag/UE4.27/
+  #
+
+  # - titles:
+  #    en: Main
+  #    ko: 메인
+  #  url: /main.html
 
   - titles:
-      # @start locale config
       en      : &EN       About
       en-GB   : *EN
       en-US   : *EN
@@ -30,5 +41,4 @@ header:
       en-AU   : *EN
       ko      : &KO       소개
       ko-KR   : *KO
-      # @end locale config
     url: /about.html

@@ -1,0 +1,28 @@
+{% comment %}
+입력: include.tag_name (필수)
+출력: 연도별로 그룹된 제목+링크 목록 (Archive 스타일 유사)
+{% endcomment %}
+
+{% assign _posts = site.posts | where_exp: "p", "p.tags contains include.tag_name" | sort: "date" | reverse %}
+
+{% if _posts == empty %}
+  <p><strong>{{ include.tag_name }}</strong> 태그의 글이 없습니다.</p>
+{% else %}
+  <div class="tag-archive">
+    {% assign current_year = "" %}
+    {% for post in _posts %}
+      {% assign y = post.date | date: "%Y" %}
+      {% if y != current_year %}
+        {% if current_year != "" %}</ul>{% endif %}
+        <h2 class="year">{{ y }}</h2>
+        <ul class="year-list">
+        {% assign current_year = y %}
+      {% endif %}
+      <li class="item">
+        <span class="date">{{ post.date | date: "%b %d" }}</span>
+        <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endif %}
