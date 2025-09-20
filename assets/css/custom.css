@@ -1,0 +1,30 @@
+.tag-archive { margin-top: 8px; }
+.tag-archive .year { font-weight: 800; font-size: 1.75rem; margin: 24px 0 8px; }
+.tag-archive .year-list { list-style: none; margin: 0 0 8px; padding: 0; }
+.tag-archive .item { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 6px 0; }
+.tag-archive .date { color: #9aa0a6; font-size: .95rem; }
+.tag-archive .title { text-decoration: none; font-weight: 700; }
+.tag-archive .title:hover { text-decoration: underline; }
+
+/* 기본: 흰색, 밑줄 없음 */
+.tag-archive .title {
+  color: #fff;
+  text-decoration: none;
+  transition: color .12s ease, text-decoration-color .12s ease;
+}
+
+/* 방문 후에도 기본색 유지 */
+.tag-archive .title:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* 호버/포커스: 노란색 + 밑줄 */
+.tag-archive .title:hover,
+.tag-archive .title:focus-visible {
+    color: #FF9500 !important;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 2px;
+}
