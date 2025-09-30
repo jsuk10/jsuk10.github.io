@@ -1,9 +1,10 @@
 name: Build users JSON
 on:
   schedule:
-    - cron: "0 * * * *" # 시간 갱신 00:00 UTC 갱신
+    - cron: "0 * * * *" # 시간 갱신
   workflow_dispatch:
-
+    push:
+    branches: [main]
 jobs:
   build-users:
     runs-on: ubuntu-latest
