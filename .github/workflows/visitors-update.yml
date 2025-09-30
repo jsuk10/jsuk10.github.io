@@ -33,7 +33,7 @@ jobs:
           GA4_SA_JSON: ${{ secrets.GA4_SA_JSON }}
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: |
-          python scripts/pull_users.py
+          python _includes/scripts/pull_users.py
 
       - name: Commit users.json
         run: |
