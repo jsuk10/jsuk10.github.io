@@ -9,7 +9,7 @@ on:
       - main # 기본 브랜치명 확인(필요하면 master)
     paths:
       - .github/workflows/user.yml
-      - scripts/pull_users.py
+      - _includes/scripts/pull_users.py
 
 jobs:
   build-users:
