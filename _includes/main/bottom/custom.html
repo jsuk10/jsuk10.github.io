@@ -1,3 +1,18 @@
 <!-- start custom main bottom snippet -->
 
+<script>
+(async function(){
+  try {
+    const res = await fetch('{{ "/assets/users.json?v=" | append: site.time | relative_url }}');
+    if (!res.ok) return;
+    const data = await res.json();
+    const el = document.createElement('div');
+    el.style.fontSize = "0.9rem";
+    el.style.opacity = "0.8";
+    el.textContent = `오늘 방문자: ${data.users.toLocaleString()}명`;
+    document.querySelector('footer')?.appendChild(el);
+  } catch(e){}
+})();
+</script>
+
 <!-- end custom main bottom snippet -->
