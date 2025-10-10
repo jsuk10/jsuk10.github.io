@@ -1,14 +1,9 @@
 {
   "range": {
-    "start": "2025-10-02",
-    "end": "2025-10-08"
+    "start": "2025-10-03",
+    "end": "2025-10-09"
   },
-  "total_users": 1,
-  "series": [
-    {
-      "date": "20251002",
-      "users": 1
-    }
-  ],
-  "generated_at": "2025-10-09T23:11:28.933640Z"
+  "total_users": 0,
+  "series": [],
+  "generated_at": "2025-10-10T00:57:34.596178Z"
 }
