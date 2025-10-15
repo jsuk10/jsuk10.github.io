@@ -1,22 +1,47 @@
-<!-- start custom main bottom snippet -->
-
 <script>
 (async function(){
   try {
-    const res = await fetch('{{ "/assets/users.json?v=" | append: site.time | relative_url }}');
-    if (!res.ok) return;
-    const data = await res.json();
-    const el = document.createElement('div');
+    console.log("[users.js] 시작");
+
+    // 1️⃣ fetch 단계
+    const url = '{{ "/assets/users.json?v=" | append: site.time | relative_url }}';
+    console.log("[users.js] Fetch URL:", url);
+    const res = await fetch(url);
+    console.log("[users.js] fetch 완료, status:", res.status);
+
+    if (!res.ok) {
+      throw new Error(`[FetchError] HTTP ${res.status} ${res.statusText}`);
+    }
+
+    // 2️⃣ JSON 파싱 단계
+    let data;
+    try {
+      data = await res.json();
+      console.log("[users.js] JSON 파싱 성공:", data);
+    } catch (e) {
+      console.error("[users.js] JSON 파싱 실패:", e);
+      throw new Error("[JSONError] users.json을 파싱할 수 없습니다.");
+    }
+
+    // 3️⃣ 데이터 검증
+    if (!data || typeof data.users !== "number") {
+      throw new Error("[DataError] users 필드가 없습니다: " + JSON.stringify(data));
+    }
+
+    // 4️⃣ DOM 조작 단계
+    const el = document.createElement("div");
     el.style.fontSize = "0.9rem";
     el.style.opacity = "0.8";
     el.textContent = `오늘 방문자: ${data.users.toLocaleString()}명`;
-    document.querySelector('footer')?.appendChild(el);
-  } 
-  catch(e)
-  {
-    console.log("방문자 집계 실패");
+
+    const footer = document.querySelector("footer");
+    if (!footer) throw new Error("[DOMError] footer 요소를 찾을 수 없습니다.");
+    footer.appendChild(el);
+    console.log("[users.js] footer에 방문자 정보 추가 완료");
+
+  } catch (e) {
+    console.error("[users.js] 방문자 집계 실패:", e);
+    // 선택적으로 alert나 UI 표시
   }
 })();
 </script>
-
-<!-- end custom main bottom snippet -->
