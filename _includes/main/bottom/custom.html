@@ -11,7 +11,11 @@
     el.style.opacity = "0.8";
     el.textContent = `오늘 방문자: ${data.users.toLocaleString()}명`;
     document.querySelector('footer')?.appendChild(el);
-  } catch(e){}
+  } 
+  catch(e)
+  {
+    console.log("방문자 집계 실패");
+  }
 })();
 </script>
 
