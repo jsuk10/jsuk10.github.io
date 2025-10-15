@@ -1,14 +1,10 @@
 {
-  "range": {
-    "start": "2025-10-08",
-    "end": "2025-10-14"
-  },
+  "monthly_series": [{
+    "ym": "2022-03",
+    "users": 1
+  }],
   "total_users": 1,
-  "series": [
-    {
-      "date": "20251012",
-      "users": 1
-    }
-  ],
-  "generated_at": "2025-10-15T02:27:10.528779Z"
+  "today": "2025-10-15",
+  "today_users": 1,
+  "generated_at": "2025-10-15T02:27:10.528Z"
 }

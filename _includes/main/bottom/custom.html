@@ -14,7 +14,7 @@
       return;
     }
 
-    // parse json
+    // parse
     let data = null;
     try {
       data = await res.json();
@@ -23,45 +23,65 @@
       return;
     }
 
-    // 오늘(KST) YYYYMMDD
-    const fmt = new Intl.DateTimeFormat('en-CA', {
+    // -------- 값 추출 --------
+    const kstFmt = new Intl.DateTimeFormat('en-CA', {
       timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit'
     });
-    const [y, m, d] = fmt.format(new Date()).split('-');
-    const today = `${y}${m}${d}`;
+    const [y, m, d] = kstFmt.format(new Date()).split('-');
+    const todayYMD = `${y}${m}${d}`;
+    const todayLabel = `${m}.${d}`; // "10.15" 형식
 
-    // 값 추출: series(오늘) → users → total_users
-    let label = '오늘 방문자';
-    let value = null;
+    let todayUsers = null;
+    if (typeof data?.today_users === 'number') {
+      todayUsers = data.today_users;
+    } else {
+      const hit = Array.isArray(data?.series)
+        ? data.series.find(s => String(s?.date) === todayYMD && typeof s?.users === 'number')
+        : null;
+      if (hit) todayUsers = hit.users;
+    }
 
-    if (data && Array.isArray(data.series)) {
-      const hit = data.series.find(s =>
-        String(s?.date) === today && typeof s?.users === 'number'
-      );
-      if (hit) value = hit.users;
+    let totalUsers = null;
+    if (typeof data?.total_users === 'number') {
+      totalUsers = data.total_users;
+    } else if (Array.isArray(data?.monthly_series)) {
+      totalUsers = data.monthly_series.reduce((acc, it) => acc + (Number(it?.users) || 0), 0);
+    } else if (Array.isArray(data?.series)) {
+      totalUsers = data.series.reduce((acc, it) => acc + (Number(it?.users) || 0), 0);
     }
-    if (value == null && typeof data?.users === 'number') {
-      value = data.users;
-    }
-    if (value == null && typeof data?.total_users === 'number') {
-      value = data.total_users;
-      label = '최근 집계 방문자';
-    }
-    if (value == null) {
-      console.error('[users.js] DataError: 지원하지 않는 스키마', data);
+
+    if (todayUsers == null || totalUsers == null) {
+      console.error('[users.js] DataError: 필요한 필드(today_users/total_users)가 없습니다.', data);
       return;
     }
 
-    // DOM 추가
-    const footer = document.querySelector('footer');
+    // -------- DOM 표시 (줄바꿈) --------
+    const footer = document.querySelector('.footer.py-4.js-page-footer:last-of-type');
     if (!footer) {
       console.error('[users.js] DOMError: footer 요소를 찾을 수 없습니다.');
       return;
     }
+
     const el = document.createElement('div');
     el.style.fontSize = '0.9rem';
     el.style.opacity = '0.8';
-    el.textContent = `${label}: ${value.toLocaleString()}명`;
+    el.style.display = 'flex';
+    el.style.flexDirection = 'column';   // 줄바꿈
+    el.style.rowGap = '0.5rem';          // 한 줄 띄우기 간격
+    el.style.paddingRight = '12px';
+
+    const nf = (n) => Number(n).toLocaleString();
+
+    const todayDiv = document.createElement('div');
+    todayDiv.textContent = `금일 (${todayLabel}) 방문자: ${nf(todayUsers)}명`;
+    todayDiv.style.whiteSpace = 'nowrap';
+
+    const totalDiv = document.createElement('div');
+    totalDiv.textContent = `누적 방문자 : ${nf(totalUsers + todayUsers)}명`;
+    totalDiv.style.whiteSpace = 'nowrap';
+
+    el.appendChild(todayDiv);
+    el.appendChild(totalDiv);
     footer.appendChild(el);
   })();
 })();
