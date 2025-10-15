@@ -1,10 +1,20 @@
 {
-  "monthly_series": [{
-    "ym": "2022-03",
-    "users": 1
-  }],
-  "total_users": 1,
+  "monthly_series": [
+    {
+      "ym": "2022-03",
+      "users": 1
+    },
+    {
+      "ym": "2025-09",
+      "users": 2
+    },
+    {
+      "ym": "2025-10",
+      "users": 2
+    }
+  ],
+  "total_users": 5,
   "today": "2025-10-15",
-  "today_users": 1,
-  "generated_at": "2025-10-15T02:27:10.528Z"
+  "today_users": 3,
+  "generated_at": "2025-10-15T06:11:49.002368Z"
 }
