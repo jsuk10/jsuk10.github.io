@@ -11,10 +11,14 @@
     {
       "ym": "2025-10",
       "users": 9
+    },
+    {
+      "ym": "2025-11",
+      "users": 2
     }
   ],
-  "total_users": 12,
-  "today": "2025-11-02",
-  "today_users": 2,
-  "generated_at": "2025-11-02T23:08:44.945244Z"
+  "total_users": 14,
+  "today": "2025-11-03",
+  "today_users": 0,
+  "generated_at": "2025-11-03T00:47:59.410051Z"
 }
