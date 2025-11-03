@@ -14,11 +14,11 @@
     },
     {
       "ym": "2025-11",
-      "users": 2
+      "users": 3
     }
   ],
-  "total_users": 14,
+  "total_users": 15,
   "today": "2025-11-03",
-  "today_users": 0,
-  "generated_at": "2025-11-03T00:47:59.410051Z"
+  "today_users": 1,
+  "generated_at": "2025-11-03T02:29:04.313715Z"
 }
