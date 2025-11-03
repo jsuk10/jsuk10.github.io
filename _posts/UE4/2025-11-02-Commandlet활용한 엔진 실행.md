@@ -10,10 +10,10 @@ tags: UE4.27
 
 ## ✅ Commandlet이란?
 
-Commandlet은 **언리얼 엔진 에디터를 실행하지 않고도 명령줄 환경에서 작업을 수행할 수 있는 실행 모듈**입니다.  
-주로 에디터 UI가 불필요한 반복 작업, 배치 처리, 자동화 환경에서 활용됩니다.
+Commandlet은 **언리얼 엔진 에디터를 실행하지 않고도 명령줄 환경에서 작업을 수행할 수 있는 실행 모듈**
+주로 에디터 UI가 불필요한 반복 작업, 배치 처리, 자동화 환경에서 활용
 
-> 에디터 로딩 없이 UE 내부 API(UObject, Assets 등)에 접근할 수 있는 점이 일반 유틸리티 스크립트와의 차별점입니다.
+> 에디터 로딩 없이 UE 내부 API(UObject, Assets 등)에 접근할 수 있는 장점이 있다.
 
 ---
 
@@ -21,8 +21,9 @@ Commandlet은 **언리얼 엔진 에디터를 실행하지 않고도 명령줄 �
 
 ### 1) 빠른 실행 속도
 
-에디터 UI 로딩 과정 없이 동작하므로 초기 실행 지연이 거의 없습니다.  
-대형 프로젝트일수록 효과가 큽니다.
+에디터 UI 로딩 과정 없이 동작하므로 초기 실행 지연이 거의 없는게 장점.
+
+- 데이터 임포트, 검증, 게임실행 (-game)등에 활용이 가능하다.
 
 ### 2) 자동화 및 스크립트 친화적
 
@@ -31,7 +32,7 @@ Commandlet은 **언리얼 엔진 에디터를 실행하지 않고도 명령줄 �
 
 ### 3) Headless 서버 환경에서 동작
 
-그래픽 환경이 없는 서버, Docker 환경에서도 동작합니다.
+그래픽 환경이 없는 서버, Docker 환경
 
 ### 4) 절차 자동화 및 일관성 보장
 
@@ -128,7 +129,7 @@ int32 UTestCommandlet::Main(const FString& Params)
 
 Unreal 에서는 Unreal VS라는 Visual Studio의 확장을 지원하여 이를 설치하여 테스트 할 수도 있다.
 
-`Engine\Extras\UnrealVS`에서 해당하는 버전을 찾으면 된다.
+`Engine\Extras\UnrealVS`에서 해당하는 버전을 설치 가능
 
 ![image.png](/assets/images/UE4.27/Commandlet.png)
 
@@ -250,7 +251,7 @@ if __name__ == "__main__":
 
 ```
 
-위와 같이 만든다면 아래 cmd에서 테스트 해본다.
+위와 같이 만든다면 아래와 같이 cmd등에서 테스트 할 수 있다.
 ![image.png](/assets/images/UE4.27/Commandlet_4.png)
 
 ---
