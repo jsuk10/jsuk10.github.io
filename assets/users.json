@@ -26,11 +26,11 @@
     },
     {
       "ym": "2026-03",
-      "users": 2
+      "users": 3
     }
   ],
-  "total_users": 27,
-  "today": "2026-03-16",
-  "today_users": 1,
-  "generated_at": "2026-03-16T23:19:25.445867Z"
+  "total_users": 28,
+  "today": "2026-03-17",
+  "today_users": 0,
+  "generated_at": "2026-03-17T01:02:55.540541Z"
 }
