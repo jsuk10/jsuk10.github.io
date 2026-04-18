@@ -27,10 +27,14 @@
     {
       "ym": "2026-03",
       "users": 3
+    },
+    {
+      "ym": "2026-04",
+      "users": 3
     }
   ],
-  "total_users": 28,
-  "today": "2026-04-17",
-  "today_users": 3,
-  "generated_at": "2026-04-17T23:28:44.280666Z"
+  "total_users": 31,
+  "today": "2026-04-18",
+  "today_users": 0,
+  "generated_at": "2026-04-18T01:11:52.044103Z"
 }
