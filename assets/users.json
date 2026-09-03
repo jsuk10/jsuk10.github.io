@@ -39,10 +39,14 @@
     {
       "ym": "2026-08",
       "users": 1
+    },
+    {
+      "ym": "2026-09",
+      "users": 1
     }
   ],
-  "total_users": 40,
+  "total_users": 41,
   "today": "2026-09-03",
   "today_users": 0,
-  "generated_at": "2026-09-03T01:44:28.246554Z"
+  "generated_at": "2026-09-03T06:35:15.773061Z"
 }
