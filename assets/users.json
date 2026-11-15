@@ -50,11 +50,11 @@
     },
     {
       "ym": "2026-11",
-      "users": 39
+      "users": 41
     }
   ],
-  "total_users": 175,
+  "total_users": 177,
   "today": "2026-11-15",
-  "today_users": 0,
-  "generated_at": "2026-11-15T01:23:44.478565Z"
+  "today_users": 1,
+  "generated_at": "2026-11-15T08:31:47.769010Z"
 }
